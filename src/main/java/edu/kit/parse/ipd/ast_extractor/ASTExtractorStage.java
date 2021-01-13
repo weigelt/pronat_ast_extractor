@@ -137,7 +137,7 @@ public class ASTExtractorStage implements IPipelineStage {
 		//			text += arc.getTargetNode().getAttributeValue("value") + " ";
 		//		}
 
-		text = (String) node.getAttributeValue("text");
+		text = (String) node.getAttributeValue("text").toString();
 
 		base.addChild(new ASTText(text.trim()));
 		return base;
@@ -153,7 +153,7 @@ public class ASTExtractorStage implements IPipelineStage {
 		String comment = "";
 		for (IArc arc : node.getOutgoingArcsOfType(graph.getArcType(ASTConstants.AST_POINTER))) {
 
-			comment += (String) arc.getTargetNode().getAttributeValue("value") + " ";
+			comment += (String) arc.getTargetNode().getAttributeValue("value").toString() + " ";
 		}
 		if (!comment.equals("")) {
 			mc.setComment(comment);
@@ -184,7 +184,7 @@ public class ASTExtractorStage implements IPipelineStage {
 					ASTExpression ex = new ASTExpression();
 					String range = "";
 					for (IArc token : arc.getTargetNode().getOutgoingArcsOfType(graph.getArcType(ASTConstants.AST_POINTER))) {
-						range += token.getTargetNode().getAttributeValue("value") + " ";
+						range += token.getTargetNode().getAttributeValue("value").toString() + " ";
 					}
 					ex.addChild(new ASTText("Error: While-If-Method not found for :" + range.trim()));
 					base.addCondition(ex);
@@ -259,7 +259,7 @@ public class ASTExtractorStage implements IPipelineStage {
 					ASTExpression ex = new ASTExpression();
 					String range = "";
 					for (IArc token : arc.getTargetNode().getOutgoingArcsOfType(graph.getArcType(ASTConstants.AST_POINTER))) {
-						range += token.getTargetNode().getAttributeValue("value") + " ";
+						range += token.getTargetNode().getAttributeValue("value").toString() + " ";
 					}
 					ex.addChild(new ASTText("Error: Condition-If-Method not found for :" + range.trim()));
 					base.addCondition(ex);
