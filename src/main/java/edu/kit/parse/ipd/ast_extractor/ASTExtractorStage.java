@@ -60,7 +60,7 @@ public class ASTExtractorStage implements IPipelineStage {
 			graph = appd.getGraph();
 
 			if (graph.getNodesOfType(graph.getNodeType(AST_ROOT)).isEmpty()) {
-				throw (new NullPointerException("No root AST-Node!"));
+				throw (new PipelineStageException("No root AST-Node!"));
 			}
 			INode gRoot = graph.getNodesOfType(graph.getNodeType(AST_ROOT)).get(0);
 			if (gRoot.getAttributeValue(ASTConstants.NEW_METHOD) != null) {
