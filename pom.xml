@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>edu.kit.ipd.parse</groupId>
-        <artifactId>parse</artifactId>
-        <version>0.0.5-SNAPSHOT</version>
+        <groupId>edu.kit.ipd.pronat</groupId>
+        <artifactId>pronat</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>ast_extractor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
+    <name>AST Extractor</name>
     <repositories>
         <repository>
             <id>ipdNexus-public-releases</id>
@@ -24,7 +24,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <outputDirectory>${parse_bundle.directory}/plugins</outputDirectory>
+                    <outputDirectory>${pronat_bundle.directory}/plugins</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -38,7 +38,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${parse_bundle.directory}/plugins/libs
+                            <outputDirectory>${pronat_bundle.directory}/plugins/libs
                             </outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
@@ -71,11 +71,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>edu.kit.ipd.pronat</groupId>
+            <artifactId>post_pipeline_data_model</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.kohsuke.metainf-services</groupId>
             <artifactId>metainf-services</artifactId>
         </dependency>
     </dependencies>
     <properties>
-        <parse_bundle.directory>../parse_bundle</parse_bundle.directory>
+        <parse_bundle.directory>../pronat_bundle</parse_bundle.directory>
     </properties>
 </project>

@@ -1,22 +1,13 @@
-package edu.kit.parse.ipd.ast_extractor;
+package edu.kit.pronat.ipd.ast_extractor;
 
-import edu.kit.ipd.parse.luna.data.PostPipelineData;
-import edu.kit.ipd.parse.luna.data.code.Method;
+import edu.kit.ipd.pronat.postpipelinedatamodel.PostPipelineData;
+import edu.kit.ipd.pronat.postpipelinedatamodel.ast.ASTConstants;
+import edu.kit.ipd.pronat.postpipelinedatamodel.ast.tree.*;
+import edu.kit.ipd.pronat.postpipelinedatamodel.code.Method;
 import org.kohsuke.MetaInfServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.kit.ipd.parse.luna.data.ast.ASTConstants;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTBlock;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTBranch;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTExpression;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTFor;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTMethodCall;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTNode;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTParallel;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTRoot;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTText;
-import edu.kit.ipd.parse.luna.data.ast.tree.ASTWhile;
 import edu.kit.ipd.parse.luna.data.AbstractPipelineData;
 import edu.kit.ipd.parse.luna.data.MissingDataException;
 import edu.kit.ipd.parse.luna.data.PipelineDataCastException;
@@ -56,7 +47,7 @@ public class ASTExtractorStage implements IPipelineStage {
 	@Override
 	public void exec(AbstractPipelineData data) throws PipelineStageException {
 		try {
-			PostPipelineData appd = data.asPostPipelineData();
+			PostPipelineData appd = (PostPipelineData) data.asPostPipelineData();
 			graph = appd.getGraph();
 
 			if (graph.getNodesOfType(graph.getNodeType(AST_ROOT)).isEmpty()) {
