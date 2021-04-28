@@ -81,6 +81,6 @@
         </dependency>
     </dependencies>
     <properties>
-        <parse_bundle.directory>../pronat_bundle</parse_bundle.directory>
+        <pronat_bundle.directory>../pronat_bundle</pronat_bundle.directory>
     </properties>
 </project>
