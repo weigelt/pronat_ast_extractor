@@ -11,13 +11,6 @@
     <artifactId>ast_extractor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>AST Extractor</name>
-    <repositories>
-        <repository>
-            <id>ipdNexus-public-all</id>
-            <name>IPD-Repository</name>
-            <url>https://bob.ipd.kit.edu/nexus/repository/maven-public-all/</url>
-        </repository>
-    </repositories>
     <build>
         <plugins>
             <plugin>
